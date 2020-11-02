@@ -1,4 +1,4 @@
-# 前言
+# 一起学RegExp 
 
 从 JavaScript 程序员的角度总结思考，循序渐进的学习正则表达式
 
@@ -33,7 +33,7 @@
 
 ## 相关资料
 
-* \*\*\*\*[正则表达式-runoob](http://www.runoob.com/regexp/regexp-tutorial.html)
+* [正则表达式-runoob](http://www.runoob.com/regexp/regexp-tutorial.html)
 * [正则表达式-MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 * [正则表达式手册](https://tool.oschina.net/uploads/apidocs/jquery/regexp.html)
 * [文章结构参考\(TypeScript入门教程\)](https://ts.xcatliu.com/introduction)

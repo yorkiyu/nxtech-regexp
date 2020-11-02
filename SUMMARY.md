@@ -1,6 +1,6 @@
 # Table of contents
 
-* [前言](README.md)
+* [一起学RegExp](README.md)
 * [简介](introduction/README.md)
   * [什么是正则表达式](introduction/what-is-a-regexp.md)
   * [JS常用正则表达式函数](introduction/regexp-function-in-js.md)

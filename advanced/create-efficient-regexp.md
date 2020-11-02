@@ -2,7 +2,9 @@
 
 打造高效的正则表达式至关重要，见因为一个正则表达式，导致线上事故的例子：
 
-{% embed url="https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/" %}
+[Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)
+> Almost nine years ago, Cloudflare was a tiny company and I was a customer not an employee. Cloudflare had launched a month earlier and one day alerting told me that my little site, jgc.org, didn’t seem to have working DNS any more. Cloudflare had pushed out a change to its use of Protocol Buffers and it had broken DNS.
+
 
 一个有性能问题的正则表达式，引起了灾难性回溯，导致cpu满载。性能问题的正则如下：
 
