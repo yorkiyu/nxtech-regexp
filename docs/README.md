@@ -1,0 +1,1 @@
+redirect book.yorkyu.cn/regexp/index

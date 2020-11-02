@@ -1,6 +1,7 @@
 {
   "title": "一起学RegExp",
   "author": "yorkyu",
+  "root": "./docs",
   "description": "在学习，项目开发，源码阅读中，常有遇到正则表达式。此时，对于大都是读者，借助搜索引擎总能理解或找到合适的正则表达式。有时遇到复杂的正则时，又无从下手，不知其匹配的模式，起初笔者也时常困扰于此，因此，笔者有了系统性重新认识正则的想法，在学习过程中，把查阅资料分析，整理并以电子书的形式记录下来分享给各位读者，期望对大家有所帮助",
   "plugins": [
     "sitemap",
@@ -15,11 +16,20 @@
     "-sharing-plus",
     "page-footer-ex",
     "favicon",
-    "popup"
+    "popup",
+    "minifier",
+    "url-embed",
+    "bulk-redirect"
   ],
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "structure": {
+    "readme": "README.md"
+  },
   "pluginsConfig": {
     "sitemap": {
-      "hostname": "https://book.yorkyu.cn/"
+      "hostname": "https://book.yorkyu.cn"
     },
     "page-footer-ex": {
         "copyright": "© All Rights Reserved By Yorkyu",
@@ -28,11 +38,17 @@
         "update_format": "YYYY-MM-DD HH:mm:ss"
     },
     "favicon":{
-      "shortcut": "assets/yorkyu.png",
-      "bookmark": "assets/yorkyu.png"
+      "shortcut": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg",
+      "bookmark": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg"
+    },
+    "bulk-redirect": {
+      "basepath": "/",
+      "redirectsFile": "./redirects.json"
     }
   },
-  "sidebar" : {
-    "Home" : "https://www.baidu.com"
+  "links" : {
+      "sidebar" : {
+          "一起学习 RegExp" : "/regexp"
+      }
   }
 }
