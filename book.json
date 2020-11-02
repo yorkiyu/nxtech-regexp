@@ -18,14 +18,10 @@
     "favicon",
     "popup",
     "minifier",
-    "url-embed",
-    "bulk-redirect"
+    "url-embed"
   ],
   "styles": {
     "website": "styles/website.css"
-  },
-  "structure": {
-    "readme": "README.md"
   },
   "pluginsConfig": {
     "sitemap": {
@@ -40,15 +36,11 @@
     "favicon":{
       "shortcut": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg",
       "bookmark": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg"
-    },
-    "bulk-redirect": {
-      "basepath": "/",
-      "redirectsFile": "./redirects.json"
     }
   },
   "links" : {
-      "sidebar" : {
-          "一起学习 RegExp" : "/regexp"
-      }
+    "sidebar" : {
+      "一起学习 RegExp" : "/regexp"
+    }
   }
 }

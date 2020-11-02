@@ -1,8 +1,0 @@
-{
-    "redirects": [
-        {
-            "from": "/regexp/index.html",
-            "to": "/regexp/index/"
-        }
-    ]
-}

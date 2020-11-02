@@ -1,6 +1,6 @@
 # Table of contents
 
-* [前言](index/README.md)
+* [前言](README.md)
 * [简介](introduction/README.md)
   * [什么是正则表达式](introduction/what-is-a-regexp.md)
   * [JS常用正则表达式函数](introduction/regexp-function-in-js.md)
@@ -14,7 +14,7 @@
   * [分组](grammar/group.md)
   * [运算符优先级](grammar/operator-precedence.md)
   * [表达式全集](grammar/complete-set.md)
-* [正则分析](complex-regexp-analysis.md)
+* [正则分析](complex-regexp-analysis/README.md)
 * [常用正则](common-regex/README.md)
 * [应用场景](application-scenario/README.md)
   * [path-to-regexp](application-scenario/path-to-regexp.md)
@@ -22,4 +22,3 @@
   * [正则引擎](advanced/regexp-engine.md)
   * [DFA与NFA](advanced/dfa-nfa.md)
   * [高效正则表达式](advanced/create-efficient-regexp.md)
-
