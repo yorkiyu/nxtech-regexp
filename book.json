@@ -17,7 +17,8 @@
     "favicon",
     "popup",
     "minifier",
-    "url-embed"
+    "url-embed",
+    "github"
   ],
   "styles": {
     "website": "styles/website.css"
@@ -27,19 +28,22 @@
       "hostname": "https://book.yorkyu.cn"
     },
     "page-footer-ex": {
-        "copyright": "© All Rights Reserved By Yorkyu",
-        "markdown": true,
-        "update_label": "<i>更新时间</i>",
-        "update_format": "YYYY-MM-DD HH:mm:ss"
+      "copyright": "© All Rights Reserved By Yorkyu",
+      "markdown": true,
+      "update_label": "<i>更新时间</i>",
+      "update_format": "YYYY-MM-DD HH:mm:ss"
     },
     "favicon":{
       "shortcut": ".gitbook/assets/favicon.ico",
       "bookmark": ".gitbook/assets/favicon.ico",
       "appleTouch": ".gitbook/assets/favicon.ico",
       "appleTouchMore": {
-          "120x120": ".gitbook/assets/favicon.ico",
-          "180x180": ".gitbook/assets/favicon.ico"
+        "120x120": ".gitbook/assets/favicon.ico",
+        "180x180": ".gitbook/assets/favicon.ico"
       }
+    },
+    "github": {
+      "url": "https://github.com/yorkiyu/nxtech-regexp/tree/master"
     }
   },
   "links" : {
