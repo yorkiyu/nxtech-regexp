@@ -34,8 +34,13 @@
         "update_format": "YYYY-MM-DD HH:mm:ss"
     },
     "favicon":{
-      "shortcut": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg",
-      "bookmark": "https://tva1.sinaimg.cn/large/007S8ZIlgy1gjc017nrsnj305w054dfp.jpg"
+      "shortcut": ".gitbook/assets/YK.ico",
+      "bookmark": ".gitbook/assets/YK.ico",
+      "appleTouch": ".gitbook/assets/YK.ico",
+      "appleTouchMore": {
+          "120x120": ".gitbook/assets/YK.ico",
+          "180x180": ".gitbook/assets/YK.ico"
+      }
     }
   },
   "links" : {

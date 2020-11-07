@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sed -i -e 's@".gitbook\/@'\".\/.gitbook\/'@g' ./_book/index.html
 sed -i -e 's@"gitbook\/@'\".\/gitbook\/'@g' ./_book/index.html
 sed -i -e 's@"introduction\/@'\".\/introduction\/'@g' ./_book/index.html
 sed -i -e 's@"grammar\/@'\".\/grammar\/'@g' ./_book/index.html
