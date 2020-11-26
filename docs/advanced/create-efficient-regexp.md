@@ -1,0 +1,91 @@
+# 高效正则表达式
+
+打造高效的正则表达式至关重要，见因为一个正则表达式，导致线上事故的例子：
+
+[Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)
+> Almost nine years ago, Cloudflare was a tiny company and I was a customer not an employee. Cloudflare had launched a month earlier and one day alerting told me that my little site, jgc.org, didn’t seem to have working DNS any more. Cloudflare had pushed out a change to its use of Protocol Buffers and it had broken DNS.
+
+
+一个有性能问题的正则表达式，引起了灾难性回溯，导致cpu满载。性能问题的正则如下：
+
+```text
+(?:(?:\"|'|\]|\}|\\|\d|(?:nan|infinity|true|false|null|undefined|symbol|math)|\`|\-|\+)+[)]*;?((?:\s|-|~|!|{}|\|\||\+)*.*(?:.*=.*)))
+```
+
+ 引起性能问题的关键部分是 `.*(?:.*=.*)` ，这里我们先不管那个非捕获组，将性能问题的正则看做 `.*.*=.*` ，其中.\* 表示贪婪匹配任意字符任意次
+
+## 高频模式优先
+
+对于文本字符串，字母与数字出现的频率较高，而特殊符号出现频率低，此时把高频率匹配模式提前，也许能达到不错的效果
+
+```javascript
+var reg1=/(:|\w)*/;
+// 更优表达式
+var reg2=/(\w|:)*/;
+var result1=reg1.exec("ab13_b:bbbb:c34d");
+var result2=reg2.exec("ab13_b:bbbb:c34d");
+document.write(result1+" "+result2);
+```
+
+## **无法匹配时**
+
+对于无法匹配的文本，可以通过某种方式提高报错的速度
+
+```javascript
+var reg1=/.*!/;
+// 更优表达式
+var reg2=/[^!]*!/;
+var str = 'The CPU exhaustion was caused by a single WAF rule that contained a poorly written regular expression that ended up creating excessive backtracking';
+var result1=reg1.exec(str);
+var result2=reg2.exec(str);
+console.log(result1, result2);
+```
+
+## **多选结构代价高**
+
+多选结构是回溯的主要原因之一。例如使用`u|v|w|x|y|z`和`[uvwxyz]`去匹配字符串“The name “McDonald’s” is said “makudonarudo” in Japanese”。最终`[uvwxyz]`只需要34次尝试就能够成功，而如果使用`u|v|w|x|y|z`则需要在每个位置进行6次回溯，在得到同样结果前总共有198次回溯
+
+## **消除无必要的括号**
+
+如果某种实现方式认为`(?:.)*`与`.*`是完全等价的，那么请使用后者替换前者，`.*`实际上更快一些
+
+## **消除不需要的字符组**
+
+只包含单个字符的字符组有点多余，因为它要按照字符组来处理，而这么做完全没有必要。所以例如`[.]`可以写成`\.`
+
+## **使用非捕获型括号**
+
+如果不需要引用括号内的文本，请使用非捕获型括号`(?:)`。这样不但能够节省捕获的时间，而且会减少回溯使用的状态的数量。由于捕获需要使用内存，所以也减少了内存的占用
+
+## **提取必须的元素**
+
+由于很多正则引擎存在着局部优化，主要是依靠正则引擎的能力来识别出匹配成功必须的一些文本，所以我们手动的将这些文本“暴露”出来可以提高引擎识别的可能性
+
+|  | 高效正则 | 说明 |
+| :--- | :--- | :--- |
+| `/xx*/` | `/x+/` | 暴露必须的`x` |
+| `/-{2,4}/` | `/--{1,3}/` | 暴露必须有两个`-` |
+| `/th(?:is|at)/` | `/(?:this|that)/` | 暴露必须的`th` |
+
+## **标准量词是匹配优先的**
+
+若用量词约束某个表达式，那么在匹配成功前，进行的尝试次数有下限和上限
+
+## **谨慎用点元符号，尽可能不用星号和加好这样的任意量词**
+
+只要能确定范围（例如“\w”），就不要用点号；只要能够预测重复次数，就不要用任意量词
+
+## **尽量使用字符串函数处理代替**
+
+使用字符串函数和正则表达式都可以处理字符串，两者相比，字符串函数处理的效率更高。当然，有些情况几乎是非正则表达式不能胜任的，或者不用正则表达式的成本太高，这些情况不得不用正则表达式，既然如此，就应该设计好
+
+## **起始、行描点优化**
+
+能确定起始位置，使用^能提高匹配的速度。同理，使用$标记结尾，正则引擎则会从符合条件的长度处开始匹配，略过目标字符串中许多可能的字符
+
+在写正则表达 式时，应该将描点独立出来，例如”^\(?:abc\|123\)比^123\|abc“效率高，而”^（abc\)比（^abc）"效率更高
+
+##  **拆分正则表达式**
+
+有时候，应用多个小正则表达式的速度比一个大正则表达式要快得多。比如你希望检查一个长字符串中是否包含月份的名字，依次检查`January`、`February`、`March`之类的速度要比`January|..|….`快得多
+

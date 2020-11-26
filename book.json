@@ -1,0 +1,54 @@
+{
+  "title": "一起学RegExp",
+  "author": "yorkyu",
+  "root": "./docs",
+  "description": "在学习，项目开发，源码阅读中，常有遇到正则表达式。此时，对于大都是读者，借助搜索引擎总能理解或找到合适的正则表达式。有时遇到复杂的正则时，又无从下手，不知其匹配的模式，起初笔者也时常困扰于此，因此，笔者有了系统性重新认识正则的想法，在学习过程中，把查阅资料分析，整理并以电子书的形式记录下来分享给各位读者，期望对大家有所帮助",
+  "plugins": [
+    "sitemap",
+    "theme-api",
+    "-sharing",
+    "back-to-top-button",
+    "code",
+    "copy-code-button",
+    "search-pro",
+    "splitter",
+    "-sharing-plus",
+    "page-footer-ex",
+    "favicon",
+    "popup",
+    "minifier",
+    "url-embed",
+    "github"
+  ],
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "pluginsConfig": {
+    "sitemap": {
+      "hostname": "https://book.yorkyu.cn"
+    },
+    "page-footer-ex": {
+      "copyright": "© All Rights Reserved By Yorkyu",
+      "markdown": true,
+      "update_label": "<i>更新时间</i>",
+      "update_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "favicon":{
+      "shortcut": ".gitbook/assets/favicon.ico",
+      "bookmark": ".gitbook/assets/favicon.ico",
+      "appleTouch": ".gitbook/assets/favicon.ico",
+      "appleTouchMore": {
+        "120x120": ".gitbook/assets/favicon.ico",
+        "180x180": ".gitbook/assets/favicon.ico"
+      }
+    },
+    "github": {
+      "url": "https://github.com/yorkiyu/nxtech-regexp/tree/master"
+    }
+  },
+  "links" : {
+    "sidebar" : {
+      "一起学习 RegExp" : "/regexp/"
+    }
+  }
+}
